@@ -18,12 +18,6 @@ using Vuforia;
 public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 {
 
-    #region UI_VARIABLES
-    public GameObject planetName;
-    public GameObject exitZoom;
-    public GameObject imageSearcher;
-    #endregion
-
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
@@ -38,10 +32,6 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         if (mTrackableBehaviour)
             mTrackableBehaviour.RegisterTrackableEventHandler(this);
 
-        //Set up UI
-        planetName.SetActive(false);
-        exitZoom.SetActive(false);
-        imageSearcher.SetActive(true);
     }
 
     protected virtual void OnDestroy()
@@ -69,9 +59,6 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
 
             OnTrackingFound();
-
-            //Setup UI
-            imageSearcher.SetActive(false);
 
         }
         else if (previousStatus == TrackableBehaviour.Status.TRACKED &&
@@ -110,7 +97,6 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Enable canvas':
         foreach (var component in canvasComponents)
             component.enabled = true;
-        
 
     }
 
@@ -132,6 +118,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Disable canvas':
         foreach (var component in canvasComponents)
             component.enabled = false;
+
     }
 
     #endregion // PROTECTED_METHODS
