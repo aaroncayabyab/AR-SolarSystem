@@ -58,6 +58,9 @@ public class InteractManager : MonoBehaviour {
         }
     }
 
+    //When planet is clicked/taooed, will disable other planets in scene
+    //When clicked, will set scale of planet to x=1,y=1,z=1, to offset properly
+    //When clicked, camera will switch from Vuforia/AR Camera to FocusCamera that sets an offset and LookAt() function
     void ZoomToObject(GameObject go)
     {
         foreach(var planet in planets)
@@ -77,6 +80,9 @@ public class InteractManager : MonoBehaviour {
         focusCamera.GetComponent<FocusCamera>().SetFocusObject(go);
     }
 
+    //When 'back' button is clicked/tapped, planets will become visible again
+    //Planet that is being focused will scale back to original size from zoomScale.
+    //Camera will switch back from FocusCamera to ARCamera
     public void ExitZoom()
     {
         foreach (var planet in planets)
@@ -93,5 +99,7 @@ public class InteractManager : MonoBehaviour {
         planetNameDisplay.SetActive(false);
                
     }
+
+
 
 }

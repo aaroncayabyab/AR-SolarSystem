@@ -12,7 +12,7 @@ public class FocusCamera : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        //Calculate and store the offset value by getting the distance between the player's position and camera's position.
+        //Calculate and store the offset value by getting the distance between the planet's position and camera's position.
         offset = new Vector3(0,1f,1.5f);
     }
 
@@ -27,7 +27,7 @@ public class FocusCamera : MonoBehaviour {
     }
 
 
-    // Call function when UIManager (raycast) clicks on a planet
+    // Call function when InteractManager (raycast) clicks on a planet
     public void SetFocusObject(GameObject POIObject)
     {
         isFocusOn = true;
